@@ -32,8 +32,8 @@ settings:
     attackDamage:
       max: 2048.0
   player-shuffle: 0
-  netty-threads: 4
-  user-cache-size: 1000
+  netty-threads: 2
+  user-cache-size: 500
 messages:
   whitelist: You are not whitelisted on this server!
   server-full: The server is full!
@@ -48,13 +48,13 @@ world-settings:
   default:
     below-zero-generation-in-existing-chunks: true
     ticks-per:
-      hopper-transfer: 8
-      hopper-check: 1
+      hopper-transfer: 20
+      hopper-check: 3
     hopper-amount: 1
     hopper-can-load-chunks: false
     merge-radius:
-      item: 0.5
-      exp: -1.0
+      item: 3.0
+      exp: 4.0
     hunger:
       jump-walk-exhaustion: 0.05
       jump-sprint-exhaustion: 0.2
@@ -65,63 +65,63 @@ world-settings:
       other-multiplier: 0.0
     simulation-distance: default
     view-distance: default
-    arrow-despawn-rate: 1200
-    trident-despawn-rate: 1200
+    arrow-despawn-rate: 400
+    trident-despawn-rate: 400
     growth:
-      cactus-modifier: 100
-      cane-modifier: 100
-      melon-modifier: 100
-      mushroom-modifier: 100
-      pumpkin-modifier: 100
-      sapling-modifier: 100
-      beetroot-modifier: 100
-      carrot-modifier: 100
-      potato-modifier: 100
-      torchflower-modifier: 100
-      wheat-modifier: 100
-      netherwart-modifier: 100
-      vine-modifier: 100
-      cocoa-modifier: 100
-      bamboo-modifier: 100
-      sweetberry-modifier: 100
-      kelp-modifier: 100
-      twistingvines-modifier: 100
-      weepingvines-modifier: 100
-      cavevines-modifier: 100
-      glowberry-modifier: 100
-      pitcherplant-modifier: 100
-    unload-frozen-chunks: false
-    thunder-chance: 100000
+      cactus-modifier: 300
+      cane-modifier: 300
+      melon-modifier: 300
+      mushroom-modifier: 300
+      pumpkin-modifier: 300
+      sapling-modifier: 300
+      beetroot-modifier: 300
+      carrot-modifier: 300
+      potato-modifier: 300
+      torchflower-modifier: 300
+      wheat-modifier: 300
+      netherwart-modifier: 300
+      vine-modifier: 300
+      cocoa-modifier: 300
+      bamboo-modifier: 300
+      sweetberry-modifier: 300
+      kelp-modifier: 300
+      twistingvines-modifier: 300
+      weepingvines-modifier: 300
+      cavevines-modifier: 300
+      glowberry-modifier: 300
+      pitcherplant-modifier: 300
+    unload-frozen-chunks: true
+    thunder-chance: 500000
     entity-tracking-range:
-      players: 128
-      animals: 96
-      monsters: 96
-      misc: 96
-      display: 128
-      other: 64
-    entity-activation-range:
+      players: 48
       animals: 32
       monsters: 32
-      raiders: 64
-      misc: 16
-      water: 16
-      villagers: 32
-      flying-monsters: 32
+      misc: 32
+      display: 48
+      other: 24
+    entity-activation-range:
+      animals: 12
+      monsters: 12
+      raiders: 24
+      misc: 6
+      water: 6
+      villagers: 12
+      flying-monsters: 12
       wake-up-inactive:
-        animals-max-per-tick: 4
-        animals-every: 1200
-        animals-for: 100
-        monsters-max-per-tick: 8
-        monsters-every: 400
-        monsters-for: 100
-        villagers-max-per-tick: 4
-        villagers-every: 600
-        villagers-for: 100
-        flying-monsters-max-per-tick: 8
-        flying-monsters-every: 200
-        flying-monsters-for: 100
-      villagers-work-immunity-after: 100
-      villagers-work-immunity-for: 20
+        animals-max-per-tick: 1
+        animals-every: 4800
+        animals-for: 25
+        monsters-max-per-tick: 2
+        monsters-every: 1600
+        monsters-for: 25
+        villagers-max-per-tick: 1
+        villagers-every: 2400
+        villagers-for: 25
+        flying-monsters-max-per-tick: 2
+        flying-monsters-every: 800
+        flying-monsters-for: 25
+      villagers-work-immunity-after: 400
+      villagers-work-immunity-for: 80
       villagers-active-for-panic: true
       tick-inactive-villagers: true
       ignore-spectators: false
@@ -147,17 +147,17 @@ world-settings:
     seed-mineshaft: default
     seed-stronghold: default
     nerf-spawner-mobs: false
-    item-despawn-rate: 6000
-    mob-spawn-range: 8
+    item-despawn-rate: 2000
+    mob-spawn-range: 3
     enable-zombie-pigmen-portal-spawns: true
     zombie-aggressive-towards-villager: true
     max-tick-time:
-      tile: 50
-      entity: 50
-    max-tnt-per-tick: 100
+      tile: 15
+      entity: 15
+    max-tnt-per-tick: 25
     wither-spawn-sound-radius: 0
     dragon-death-sound-radius: 0
-    hanging-tick-frequency: 100
+    hanging-tick-frequency: 300
     end-portal-sound-radius: 0
     verbose: false
 players:
