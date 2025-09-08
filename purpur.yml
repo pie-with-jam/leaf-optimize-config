@@ -136,7 +136,7 @@ settings:
       seconds: '%02d seconds'
   network:
     upnp-port-forwarding: false
-    max-joins-per-second: false
+    max-joins-per-second: 3
   lagging-threshold: 19.0
   blocks:
     barrel:
@@ -184,7 +184,7 @@ settings:
       only-broadcast-to-affected-player: false
     death:
       only-broadcast-to-affected-player: false
-  tps-catchup: true
+  tps-catchup: false
   limit-armor: true
 config-version: 43
 world-settings:
@@ -1715,20 +1715,20 @@ world-settings:
             campfires: false
       mob-spawning:
         village-cats: default
-        raid-patrols: default
-        phantoms: default
-        wandering-traders: default
-        village-sieges: default
+        raid-patrols: false
+        phantoms: false
+        wandering-traders: false
+        village-sieges: false
         ignore-creative-players: false
       arrow:
-        movement-resets-despawn-counter: true
+        movement-resets-despawn-counter: false
       armorstand:
         step-height: 0.0
         set-name-visible-when-placing-with-custom-name: false
         fix-nametags: false
-        can-movement-tick: true
-        can-move-in-water: true
-        can-move-in-water-over-fence: true
+        can-movement-tick: false
+        can-move-in-water: false
+        can-move-in-water-over-fence: false
         place-with-arms-visible: false
       drowning:
         air-ticks: 300
@@ -1764,7 +1764,7 @@ world-settings:
       player:
         idle-timeout:
           kick-if-idle: true
-          tick-nearby-entities: true
+          tick-nearby-entities: false
           count-as-sleeping: false
           update-tab-list: false
           mobs-target: true
@@ -1819,10 +1819,10 @@ world-settings:
       disable-drops-on-cramming-death: false
       milk-cures-bad-omen: true
       trident-loyalty-void-return-height: 0.0
-      entities-can-use-portals: true
+      entities-can-use-portals: false
       raid-cooldown-seconds: 0
       animal-breeding-cooldown-seconds: 0
-      persistent-droppable-entity-display-names: true
+      persistent-droppable-entity-display-names: false
       entities-pick-up-loot-mob-griefing-override: default
       fireballs-mob-griefing-override: default
       projectiles-mob-griefing-override: default
@@ -1836,7 +1836,7 @@ world-settings:
       rain-stops-after-sleep: true
       thunder-stops-after-sleep: true
       persistent-tileentity-lore: false
-      persistent-tileentity-display-name: true
+      persistent-tileentity-display-name: false
       mob-last-hurt-by-player-time: 100
       milk-clears-beneficial-effects: true
       disable-oxidation-proximity-penalty: false
