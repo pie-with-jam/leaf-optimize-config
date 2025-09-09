@@ -11,7 +11,7 @@ async:
   # Makes chunk packet preparation and sending asynchronous to improve server performance.
   # This can significantly reduce main thread load when many players are loading chunks.
   async-chunk-send:
-    enabled: false
+    enabled: true
   # Whether or not asynchronous mob spawning should be enabled.
   # On servers with many entities, this can improve performance by up to 15%. You must have
   # paper's per-player-mob-spawns setting set to true for this to work.
@@ -20,27 +20,27 @@ async:
   async-mob-spawning:
     enabled: true
   async-pathfinding:
-    enabled: false
-    max-threads: 0
+    enabled: true
+    max-threads: 4
     keepalive: 60
-    queue-size: 0
+    queue-size: 1000
     # The policy to use when the queue is full and a new task is submitted.
     # FLUSH_ALL: All pending tasks will be run on server thread.
     # CALLER_RUNS: Newly submitted task will be run on server thread.
     reject-policy: FLUSH_ALL
   # Make PlayerData saving asynchronously.
   async-playerdata-save:
-    enabled: false
+    enabled: true
   # ** Experimental Feature **
   # Make entity tracking asynchronously, can improve performance significantly,
   # especially in some massive entities in small area situations.
   async-entity-tracker:
-    enabled: false
-    threads: 0
+    enabled: true
+    threads: 2
   # **Experimental feature**
   # Enables parallel world ticking to improve performance on multi-core systems.
   parallel-world-ticking:
-    enabled: false
+    enabled: true
     threads: 8
     log-container-creation-stacktraces: false
     disable-hard-throw: false
@@ -52,31 +52,31 @@ async:
 performance:
   check-survival-before-growth:
     # Check if a cactus can survive before growing.
-    cactus-check-survival: false
+    cactus-check-survival: true
   dont-save-entity:
     # Disable save primed tnt on chunk unloads.
     # Useful for redstone/technical servers, can prevent machines from being exploded by TNT,
     # when player disconnected caused by Internet issue.
-    dont-save-primed-tnt: false
-    dont-save-falling-block: false
+    dont-save-primed-tnt: true
+    dont-save-falling-block: true
   # Optimizes entity brains when
   # they're far away from the player
   dab:
-    enabled: false
+    enabled: true
     # After enabling this, non-aquatic entities in the water will not be affected by DAB.
     # This could fix entities suffocate in the water.
     dont-enable-if-in-water: false
     # This value determines how far away an entity has to be
     # from the player to start being effected by DEAR.
-    start-distance: 12
+    start-distance: 8
     # This value defines how often in ticks, the furthest entity
     # will get their pathfinders and behaviors ticked. 20 = 1s
-    max-tick-freq: 20
+    max-tick-freq: 40
     # This value defines how much distance modifies an entity's
     # tick frequency. freq = (distanceToPlayer^2) / (2^value)",
     # If you want further away entities to tick less often, use 7.
     # If you want further away entities to tick more often, try 9.
-    activation-dist-mod: 8
+    activation-dist-mod: 7
     # A list of entities to ignore for activation
     blacklisted-entities:
     - villager
@@ -88,63 +88,63 @@ performance:
   enable-cached-minecraft-to-bukkit-entitytype-convert: true
   fast-biome-manager-seed-obfuscation:
     # Replace vanilla SHA-256 seed obfuscation in BiomeManager with XXHash.
-    enabled: false
+    enabled: true
     # Seed obfuscation key for XXHash.
     seed-obfuscation-key: -7339326072821403191
   # Use faster random generator?
   # Requires a JVM that supports RandomGenerator.
   # Some JREs don't support this.
   faster-random-generator:
-    enabled: false
+    enabled: true
     # Which random generator will be used?
     # See https://openjdk.org/jeps/356
     random-generator: Xoroshiro128PlusPlus
     # Enable faster random generator for world generation.
     # WARNING: This will affect world generation!!!
-    enable-for-worldgen: false
+    enable-for-worldgen: true
     # Warn if you are not using legacy random source for slime chunk generation.
     warn-for-slime-chunk: true
     # Use legacy random source for slime chunk generation,
     # to follow vanilla behavior.
-    use-legacy-random-for-slime-chunk: false
+    use-legacy-random-for-slime-chunk: true
     # Use direct random implementation instead of delegating to Java's RandomGenerator.
     # This may improve performance but potentially changes RNG behavior.
-    use-direct-implementation: false
+    use-direct-implementation: true
   # May cause the inconsistent order of future compose tasks.
   faster-structure-gen-future-sequencing: true
   cache-biome:
-    enabled: false
-    mob-spawning: false
-    advancements: false
+    enabled: true
+    mob-spawning: true
+    advancements: true
   optimize-block-entities: true
-  optimize-mob-despawn: false
+  optimize-mob-despawn: true
   # Whether to only tick / update items in main hand and offhand instead of the entire inventory.
-  only-tick-items-in-hand: false
+  only-tick-items-in-hand: true
   optimize-no-action-time:
     disable-light-check: false
   # Whether to optimize player movement processing by skipping unnecessary edge checks and avoiding redundant view distance updates.
   optimize-player-movement: true
-  optimize-random-tick: false
-  optimize-waypoint: false
-  optimized-powered-rails: false
+  optimize-random-tick: true
+  optimize-waypoint: true
+  optimized-powered-rails: true
   reduce-packets:
-    reduce-entity-move-packets: false
+    reduce-entity-move-packets: true
   skip-ai-for-non-aware-mob: true
   datapack:
     # Skip selecting inactive entities when using execute command.
     # Will improve performance on servers with massive datapack functions.
-    skip-inactive-entity-for-execute-command: false
+    skip-inactive-entity-for-execute-command: true
   skip-map-item-data-updates-if-map-does-not-have-craftmaprenderer: true
   throttle-hopper-when-full:
     # Throttles the hopper if target container is full.
-    enabled: false
+    enabled: true
     # How many ticks to throttle when the Hopper is throttled.
     skip-ticks: 8
   # Skip mob spawning for chunks with repeated failures exceeding `min-failed`.
   # Randomly skip 1-`spawn-chance`% of these chunks from spawning attempts.
   # Failure counter does not increment when spawn limits are reached.
   throttle-mob-spawning:
-    enabled: false
+    enabled: true
     monster:
       min-failed: 8
       spawn-chance: 25.0
@@ -270,7 +270,7 @@ gameplay-mechanisms:
 #############
 network:
   # Async switch connection state.
-  async-switch-state: false
+  async-switch-state: true
   # Whether or not enable chat message signature,
   # disable will prevent players to report chat messages.
   # And also disables the popup when joining a server without
@@ -283,7 +283,7 @@ network:
   # expensive thread wakeup calls when scheduling packet operations.
   # 
   # Requires server restart to take effect.
-  OptimizeNonFlushPacketSending: false
+  OptimizeNonFlushPacketSending: true
   protocol-support:
     jade-protocol: false
     appleskin-protocol: false
@@ -314,11 +314,11 @@ misc:
   cache:
     profile-lookup:
       # Cache profile data lookups (skins, textures, etc.) to reduce API calls to Mojang.
-      enabled: false
+      enabled: true
       # The timeout for profile lookup cache. Unit: Minutes.
-      timeout: 1440
+      timeout: 2880
       # Maximum number of profiles to cache. Higher values use more memory (not that much).
-      max-size: 8192
+      max-size: 16384
   # Connection message, using MiniMessage format, set to "default" to use vanilla join message.
   # available placeholders:
   # %player_name% - player name
@@ -340,17 +340,17 @@ misc:
     enable-for-water: false
     enable-for-lava: false
   # Enable to prevent console spam.
-  remove-change-non-editable-sign-warning: false
+  remove-change-non-editable-sign-warning: true
   # Enable player enter backend server through proxy
   # without backend server enabling its bungee mode.
-  remove-spigot-check-bungee-config: false
+  remove-spigot-check-bungee-config: true
   # Remove Vanilla username check,
   # allowing all characters as username.
-  remove-vanilla-username-check: false
+  remove-vanilla-username-check: true
   # Once you enable secure seed, all ores and structures are generated with 1024-bit seed
   # instead of using 64-bit seed in vanilla, made seed cracker become impossible.
   secure-seed:
-    enabled: false
+    enabled: true
   sentry:
     # Sentry DSN for improved error logging, leave blank to disable,
     # Obtain from https://sentry.io/
