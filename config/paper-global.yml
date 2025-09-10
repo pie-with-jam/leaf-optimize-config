@@ -19,33 +19,27 @@ anticheat:
     items:
       all-models:
         also-obfuscate: []
-        dont-obfuscate:
-        - minecraft:lodestone_tracker
+        dont-obfuscate: []
         sanitize-count: false
       enable-item-obfuscation: false
-      model-overrides:
-        minecraft:elytra:
-          also-obfuscate: []
-          dont-obfuscate:
-          - minecraft:damage
-          sanitize-count: false
+      model-overrides: {}
 block-updates:
-  disable-chorus-plant-updates: false
-  disable-mushroom-block-updates: false
-  disable-noteblock-updates: false
-  disable-tripwire-updates: false
+  disable-chorus-plant-updates: true
+  disable-mushroom-block-updates: true
+  disable-noteblock-updates: true
+  disable-tripwire-updates: true
 chunk-loading-advanced:
   auto-config-send-distance: true
-  player-max-concurrent-chunk-generates: 4
-  player-max-concurrent-chunk-loads: 4
+  player-max-concurrent-chunk-generates: 8
+  player-max-concurrent-chunk-loads: 8
 chunk-loading-basic:
-  player-max-chunk-generate-rate: 50.0
-  player-max-chunk-load-rate: 200.0
-  player-max-chunk-send-rate: 150.0
+  player-max-chunk-generate-rate: 100.0
+  player-max-chunk-load-rate: 400.0
+  player-max-chunk-send-rate: 300.0
 chunk-system:
-  gen-parallelism: default
-  io-threads: -1
-  worker-threads: -1
+  gen-parallelism: aggressive
+  io-threads: 4
+  worker-threads: 8
 collisions:
   enable-player-collisions: false
   send-full-pos-for-hard-colliding-entities: false
@@ -81,33 +75,33 @@ messages:
   use-display-name-in-quit-message: false
 misc:
   chat-threads:
-    chat-executor-core-size: 2
-    chat-executor-max-size: 8
+    chat-executor-core-size: 4
+    chat-executor-max-size: 16
   client-interaction-leniency-distance: 0.0
-  compression-level: 1
+  compression-level: 6
   load-permissions-yml-before-plugins: true
-  max-joins-per-tick: 10
-  prevent-negative-villager-demand: false
-  region-file-cache-size: 512
+  max-joins-per-tick: 20
+  prevent-negative-villager-demand: true
+  region-file-cache-size: 1024
   send-full-pos-for-item-entities: false
   strict-advancement-dimension-check: false
   use-alternative-luck-formula: false
   use-dimension-type-for-custom-spawners: false
-  xp-orb-groups-per-area: 2
+  xp-orb-groups-per-area: 4
 packet-limiter:
   all-packets:
     action: KICK
     interval: 7.0
-    max-packet-rate: 1000.0
+    max-packet-rate: 2000.0
   kick-message: <red><lang:disconnect.exceeded_packet_rate>
   overrides:
     minecraft:place_recipe:
       action: DROP
       interval: 4.0
-      max-packet-rate: 5.0
+      max-packet-rate: 10.0
 player-auto-save:
-  max-per-tick: 20
-  rate: 12000
+  max-per-tick: 40
+  rate: 24000
 proxies:
   bungee-cord:
     online-mode: true
@@ -120,11 +114,11 @@ scoreboards:
   save-empty-scoreboard-teams: true
   track-plugin-scoreboards: false
 spam-limiter:
-  incoming-packet-threshold: 1000
+  incoming-packet-threshold: 2000
   recipe-spam-increment: 1
-  recipe-spam-limit: 50
+  recipe-spam-limit: 100
   tab-spam-increment: 1
-  tab-spam-limit: 1000
+  tab-spam-limit: 2000
 spark:
   enable-immediately: false
   enabled: true
@@ -139,5 +133,5 @@ unsupported-settings:
   skip-vanilla-damage-tick-when-shield-blocked: false
   update-equipment-on-player-actions: true
 watchdog:
-  early-warning-delay: 10000
-  early-warning-every: 5000
+  early-warning-delay: 20000
+  early-warning-every: 10000
