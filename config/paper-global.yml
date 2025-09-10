@@ -21,14 +21,14 @@ anticheat:
         also-obfuscate: []
         dont-obfuscate:
         - minecraft:lodestone_tracker
-        sanitize-count: true
+        sanitize-count: false
       enable-item-obfuscation: false
       model-overrides:
         minecraft:elytra:
           also-obfuscate: []
           dont-obfuscate:
           - minecraft:damage
-          sanitize-count: true
+          sanitize-count: false
 block-updates:
   disable-chorus-plant-updates: false
   disable-mushroom-block-updates: false
@@ -36,19 +36,19 @@ block-updates:
   disable-tripwire-updates: false
 chunk-loading-advanced:
   auto-config-send-distance: true
-  player-max-concurrent-chunk-generates: 0
-  player-max-concurrent-chunk-loads: 0
+  player-max-concurrent-chunk-generates: 4
+  player-max-concurrent-chunk-loads: 4
 chunk-loading-basic:
-  player-max-chunk-generate-rate: -1.0
-  player-max-chunk-load-rate: 100.0
-  player-max-chunk-send-rate: 75.0
+  player-max-chunk-generate-rate: 50.0
+  player-max-chunk-load-rate: 200.0
+  player-max-chunk-send-rate: 150.0
 chunk-system:
   gen-parallelism: default
   io-threads: -1
   worker-threads: -1
 collisions:
-  enable-player-collisions: true
-  send-full-pos-for-hard-colliding-entities: true
+  enable-player-collisions: false
+  send-full-pos-for-hard-colliding-entities: false
 commands:
   ride-command-allow-player-as-vehicle: false
   suggest-player-names-when-null-tab-completions: true
@@ -81,24 +81,24 @@ messages:
   use-display-name-in-quit-message: false
 misc:
   chat-threads:
-    chat-executor-core-size: -1
-    chat-executor-max-size: -1
-  client-interaction-leniency-distance: default
-  compression-level: default
+    chat-executor-core-size: 2
+    chat-executor-max-size: 8
+  client-interaction-leniency-distance: 0.0
+  compression-level: 1
   load-permissions-yml-before-plugins: true
-  max-joins-per-tick: 5
+  max-joins-per-tick: 10
   prevent-negative-villager-demand: false
-  region-file-cache-size: 256
+  region-file-cache-size: 512
   send-full-pos-for-item-entities: false
   strict-advancement-dimension-check: false
   use-alternative-luck-formula: false
   use-dimension-type-for-custom-spawners: false
-  xp-orb-groups-per-area: default
+  xp-orb-groups-per-area: 2
 packet-limiter:
   all-packets:
     action: KICK
     interval: 7.0
-    max-packet-rate: 500.0
+    max-packet-rate: 1000.0
   kick-message: <red><lang:disconnect.exceeded_packet_rate>
   overrides:
     minecraft:place_recipe:
@@ -106,8 +106,8 @@ packet-limiter:
       interval: 4.0
       max-packet-rate: 5.0
 player-auto-save:
-  max-per-tick: -1
-  rate: -1
+  max-per-tick: 20
+  rate: 12000
 proxies:
   bungee-cord:
     online-mode: true
@@ -120,11 +120,11 @@ scoreboards:
   save-empty-scoreboard-teams: true
   track-plugin-scoreboards: false
 spam-limiter:
-  incoming-packet-threshold: 300
+  incoming-packet-threshold: 1000
   recipe-spam-increment: 1
-  recipe-spam-limit: 20
+  recipe-spam-limit: 50
   tab-spam-increment: 1
-  tab-spam-limit: 500
+  tab-spam-limit: 1000
 spark:
   enable-immediately: false
   enabled: true
