@@ -33,9 +33,9 @@ chunk-loading-advanced:
   player-max-concurrent-chunk-generates: 8
   player-max-concurrent-chunk-loads: 8
 chunk-loading-basic:
-  player-max-chunk-generate-rate: 100.0
-  player-max-chunk-load-rate: 400.0
-  player-max-chunk-send-rate: 300.0
+  player-max-chunk-generate-rate: 60.0
+  player-max-chunk-load-rate: 300.0
+  player-max-chunk-send-rate: 200.0
 chunk-system:
   gen-parallelism: aggressive
   io-threads: 4
@@ -78,7 +78,7 @@ misc:
     chat-executor-core-size: 4
     chat-executor-max-size: 16
   client-interaction-leniency-distance: 0.0
-  compression-level: 6
+  compression-level: 3
   load-permissions-yml-before-plugins: true
   max-joins-per-tick: 20
   prevent-negative-villager-demand: true
@@ -87,7 +87,7 @@ misc:
   strict-advancement-dimension-check: false
   use-alternative-luck-formula: false
   use-dimension-type-for-custom-spawners: false
-  xp-orb-groups-per-area: 4
+  xp-orb-groups-per-area: 8
 packet-limiter:
   all-packets:
     action: KICK
